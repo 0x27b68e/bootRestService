@@ -1,0 +1,30 @@
+
+
+- add webapp folder into main folder, add WEB-INF folder into webapp folder, add jsp folder into WEB-INF folder,
+add hello.jsp into jsp folder
+
+dont need to add  Tomcat, because Tomcat is embble into springboot project
+
+run: right click on file contain main class to start project
+
+
+create normal controller add @Controller, create restcontroller add @RestController
+
+
+
+spring boot dont support jsp, so if you want to use it, let add
+        <dependency>
+	        <groupId>org.apache.tomcat</groupId>
+		    <artifactId>tomcat-jasper</artifactId>
+		    <version>9.0.17</version>
+	    </dependency>
+
+
+
+--------
+change prefix and suffix in application.properties
+
+spring.mvc.view.prefix=/WEB-INF/jsp/
+spring.mvc.view.suffix=.jsp
+
+
