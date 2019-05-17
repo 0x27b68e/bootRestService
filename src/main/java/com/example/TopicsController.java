@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example;
 
 import java.util.List;
 
@@ -19,15 +19,19 @@ public class TopicsController {
 	@Autowired
 	private TopicsService topicsService;
 	
+	@RequestMapping(value = "/")
+	public String home() {
+		return "Enter /topics, /topics/title, /topics/{foo}, /addTopic";
+	}
 	
 	//http://localhost:8080/topics
-	@RequestMapping("/topics")
+	@RequestMapping("/getTopics")
 	public List<Topic> getlistTopic() {
 		return topicsService.listTopics();
 	}
 	
-	//http://localhost:8080/topics/title?title=JQuery
-	@RequestMapping("/topics/title")
+	//http://localhost:8080/topics?title=JQuery
+	@RequestMapping("/topics")
 	public Topic getTopic(@RequestParam("title") String title) {
 		return topicsService.getTopic(title);
 	}

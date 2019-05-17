@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example;
 
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
