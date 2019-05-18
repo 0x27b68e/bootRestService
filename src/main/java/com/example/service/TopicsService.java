@@ -30,5 +30,27 @@ public void adddTopic(Topic topic) {
 	topics.add(topic);
 }
 
+public void updateTopic(String id, Topic topic) {
+	// TODO Auto-generated method stub
+	for (int i = 0; i < topics.size(); i++) {
+		Topic t = topics.get(i);
+		if(t.getTitle().equals(id)) {
+			topics.set(i, topic);
+			return;
+		}
+	}
+}
+
+public void deleteTopic(String id) {
+	// TODO Auto-generated method stub
+	for (Topic topic : topics) {
+	    if(topic.getTitle().equals(id)) {
+		topics.remove(topic);
+		return;
+	    }
+	}
+	
+}
+
     
 }

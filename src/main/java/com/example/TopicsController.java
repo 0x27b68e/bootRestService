@@ -21,7 +21,7 @@ public class TopicsController {
 	
 	@RequestMapping(value = "/")
 	public String home() {
-		return "Enter /topics, /topics/title, /topics/{foo}, /addTopic";
+		return "Enter /topics, /getTopics, /topics/{foo}, /addTopic";
 	}
 	
 	//http://localhost:8080/topics
@@ -42,7 +42,7 @@ public class TopicsController {
 		return topicsService.getTopic(title);
 	}*/
 	
-	//version 2
+	//version 2, http://localhost:8080/topics/JQuery
 	@RequestMapping("/topics/{foo}")
 	public Topic getTopic2(@PathVariable("foo") String title) {
 		return topicsService.getTopic(title);
@@ -58,5 +58,25 @@ public class TopicsController {
 	public void addTopic(@RequestBody Topic topic) { // tell springboot that it need body for this path
 		topicsService.adddTopic(topic);
 	}
+	
+	/*
+	 * localhost:8080/updateTopic/JQuery 
+	 * { "title": "JQuery", 
+	 * "name": "Learnning JQuery Update" }
+	 */
+	@RequestMapping(value = "/updateTopic/{id}", method = RequestMethod.PUT)
+	public void updateTopic(@RequestBody Topic topic, @PathVariable String id) {
+		
+		topicsService.updateTopic(id, topic);
+		
+	}
+	
+	//localhost:8080/deleteTopic/JQuery
+	@RequestMapping(value = "/deleteTopic/{id}", method = RequestMethod.DELETE)
+	public void deleteTopic(@PathVariable String id) {
+		topicsService.deleteTopic(id);
+	}
+	
+	
 	
 }
