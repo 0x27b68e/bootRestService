@@ -41,7 +41,8 @@ public void updateTopic(String id, Topic topic) {
 	}
 }
 
-public void deleteTopic(String id) {
+//version 1
+/*public void deleteTopic(String id) {
 	// TODO Auto-generated method stub
 	for (Topic topic : topics) {
 	    if(topic.getTitle().equals(id)) {
@@ -50,7 +51,12 @@ public void deleteTopic(String id) {
 	    }
 	}
 	
-}
+} */
 
+// version 2
+
+public void deleteTopic(String id) {
+	topics.removeIf((t) -> t.getTitle().equals(id));
+}
     
 }
